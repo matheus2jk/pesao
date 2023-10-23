@@ -58,6 +58,27 @@
                 max-width: 100%; /* Preenchimento total na largura da tela */
             }
         }
+
+        /* Estilo do botão "Verificar Respostas" */
+        button {
+            background-color: #333; /* Cor de fundo escura */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Estilos para o bolo de aniversário e a vela */
+        .bolo {
+            width: 200px;
+            margin: 20px auto;
+        }
+
+        .vela {
+            width: 20px;
+            margin-top: -10px;
+        }
     </style>
 </head>
 <body>
@@ -76,14 +97,104 @@
     
     <section>
         <h2>art camala, conhecido pelo apelido "Pesão," foi um criminoso brasileiro envolvido com a facção criminosa conhecida como Comando Vermelho, que atua principalmente no Rio de Janeiro e em outras partes do Brasil. O Comando Vermelho é uma das organizações criminosas mais poderosas e influentes do país, envolvida em atividades como tráfico de drogas, assassinatos, e outras formas de criminalidade.</h2>
-        <p>Deve-se ressaltar que  Pesão e muitos outros membros do Comando Vermelho têm uma história de envolvimento em atividades ilegais e violentas, o que levou a inúmeras operações policiais e prisões no contexto da luta contra o crime organizado no Brasil.</p>
+        <p>Deve-se ressaltar que Pesão e muitos outros membros do Comando Vermelho têm uma história de envolvimento em atividades ilegais e violentas, o que levou a inúmeras operações policiais e prisões no contexto da luta contra o crime organizado no Brasil.</p>
         
         <!-- Adicione uma imagem -->
         <img src="https://static.wikia.nocookie.net/dublagempedia/images/b/b1/The_Lion_King_II_Simba%27s_Pride_King_Simba.png/revision/latest/scale-to-width-down/200?cb=20200917013423&path-prefix=pt-br" alt="Imagem de Luciano Pezão">
+
+        <h2>Quiz</h2>
+
+        <!-- Pergunta 1 - Resposta Aberta -->
+        <p>Pergunta 1: Quem inventou o apelido peixota?</p>
+        <input type="text" id="resposta1" name="resposta1" placeholder="Sua resposta..." required>
+        
+        <!-- Pergunta 2 - Escolha Múltipla -->
+        <p>Pergunta 2: Qual foi o primeiro apelido que foi dado a Arthur?</p>
+        <input type="radio" id="resposta2a" name="resposta2" value="azul">
+        <label for="resposta2a">Pesão</label><br>
+        <input type="radio" id="resposta2b" name="resposta2" value="vermelho">
+        <label for="resposta2b">jacare</label><br>
+        <input type="radio" id="resposta2c" name="resposta2" value="verde">
+        <label for="resposta2c">balu</label><br>
+        <input type="radio" id="resposta2d" name="resposta2" value="amarelo">
+        <label for="resposta2d">pesota</label><br>
+        
+        <!-- Pergunta 3 - Sim ou Não -->
+        <p>Pergunta 3: Quantas vezes Arthur pediu amostra grátis prós vendedores dá sala?</p>
+        <input type="radio" id="resposta3sim" name="resposta3" value="sim">
+        <label for="resposta3sim">50</label>
+        <input type="radio" id="resposta3nao" name="resposta3" value="nao">
+        <label for="resposta3nao">7</label><br>
+        
+        <!-- Pergunta 4 - Escolha Múltipla -->
+        <p>Pergunta 4: quem arthur deve mais dinheiro?</p>
+        <input type="radio" id="resposta4a" name="resposta4" value="terra">
+        <label for="resposta4a">lara</label><br>
+        <input type="radio" id="resposta4b" name="resposta4" value="marte">
+        <label for="resposta4b">davi</label><br>
+        <input type="radio" id="resposta4c" name="resposta4" value="jupiter">
+        <label for="resposta4c">perverso/estevao</label><br>
+        <input type="radio" id="resposta4d" name="resposta4" value="venus">
+        <label for="resposta4d">mago</label><br>
+        
+        <!-- Pergunta 5 - Sim ou Não -->
+        <p>Pergunta 5: voce acha que pesota e cheio das webnamorada?</p>
+        <input type="radio" id="resposta5sim" name="resposta5" value="sim">
+        <label for="resposta5sim">Sim</label>
+        <input type="radio" id="resposta5nao" name="resposta5" value="nao">
+        <label for="resposta5nao">Sim</label><br>
+
+        <button onclick="verificarRespostas()" style="background-color: #333; color: #fff;">Verificar Respostas</button>
+        <p id="resultado"></p>
+
+        <!-- Mensagem de Parabéns -->
+        <div id="parabens" style="text-align: center; font-size: 24px; margin-top: 20px;">
+            <p>Parabéns para Balu Pesão Pesota Art Camala!</p>
+            <img src="https://i.imgur.com/FTio8mz.png" alt="Bolo de Aniversário" class="bolo">
+            <img src="https://i.imgur.com/gkyrDci.png" alt="Vela de Aniversário" class="vela">
+        </div>
+
+        <script>
+            function verificarRespostas() {
+                // Obter respostas do usuário
+                const resposta1 = document.getElementById("resposta1").value;
+                const resposta2 = document.querySelector('input[name="resposta2"]:checked');
+                const resposta3 = document.querySelector('input[name="resposta3"]:checked');
+                const resposta4 = document.querySelector('input[name="resposta4"]:checked');
+                const resposta5 = document.querySelector('input[name="resposta5"]:checked');
+
+                // Verificar respostas
+                let pontuacao = 0;
+
+                if (resposta1.toLowerCase() === "mago") {
+                    pontuacao++;
+                }
+
+                if (resposta2 && resposta2.value === "verde") {
+                    pontuacao++;
+                }
+
+                if (resposta3 && resposta3.value === "50") {
+                    pontuacao++;
+                }
+
+                if (resposta4 && resposta4.value === "lara") {
+                    pontuacao++;
+                }
+
+                if (resposta5 && (resposta5.value === "sim" || resposta5.value === "nao")) {
+                    pontuacao++;
+                }
+
+                // Exibir o resultado
+                const resultado = document.getElementById("resultado");
+                resultado.textContent = `Você acertou ${pontuacao} de 5 perguntas.`;
+            }
+        </script>
     </section>
     
     <footer>
-        <p>&copy; 2023  Todos os direitos reservados A balu Pesão pesota art camala .</p>
+        <p>&copy; 2023 Todos os direitos reservados A balu Pesão pesota art camala.</p>
     </footer>
 </body>
 </html>
